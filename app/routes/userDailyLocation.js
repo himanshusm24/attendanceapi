@@ -4,7 +4,7 @@ const router = express.Router();
 
 const verifyJwt = require("../middelware/jwt-toke");
 
-const all_pages = require("../controllers/userdailylocation");
+const all_pages = require("../controllers/userDailyLocation");
 
 router.post("/punchIn", verifyJwt, all_pages.punchIn);
 
