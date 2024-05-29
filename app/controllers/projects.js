@@ -468,7 +468,7 @@ exports.allocatedAssigneeUsers = async (req, res) => {
                 JOIN branch b ON u.branch_id = b.id`;
 
     if (projectId) {
-      qry += ` WHERE projects.project_id = ${projectId} OR projects.parent_project_id = ${projectId} AND pau.status = 0`;
+      qry += ` WHERE (projects.project_id = ${projectId} OR projects.parent_project_id = ${projectId}) AND pau.status = 0`;
     }
 
     if(!projectId){
