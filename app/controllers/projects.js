@@ -472,7 +472,7 @@ exports.allocatedAssigneeUsers = async (req, res) => {
     }
 
     if(!projectId){
-      qr+= ` WHERE pau.status = 0`;
+      qry += ` WHERE pau.status = 0`;
     }
 
     qry += ` ORDER BY pau.project_id DESC`;
