@@ -126,7 +126,10 @@ exports.getTasks = async (req, res) => {
         assigned_to_user.name AS assigned_to_name,
         reporter_user.name AS reporter_name,
         projects.project_name AS subProject,
-        projects.parent_project_id AS subProjectId,
+        CASE
+          WHEN projects.parent_project_id IS NOT NULL THEN projects.parent_project_id
+          ELSE projects.project_id
+        END AS subProjectId,
         parent_project.project_name AS mainProject
     FROM
         tasks
